@@ -13,6 +13,7 @@ RUN apt-get update -y && \
 
 # Instalar herramientas Ruby
 RUN gem install bundler
+RUN gem install jekyll --no-document
 
 # Directorio del sitio y de las gems
 ENV GEM_HOME=/gems
