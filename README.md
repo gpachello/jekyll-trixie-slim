@@ -1,11 +1,11 @@
 # Jekyll Trixie Slim
 
 A minimal Docker setup to run Jekyll on top of `debian:trixie-slim`.  
-The goal is simplicity: clean base image, only essential packages, and a lightweight environment for local Jekyll development.
+The goal is simplicity: a clean base image, only the essential packages, and a lightweight setup for local Jekyll development.
 
 ## Features:
 
-* Based on Debian Trixie Slim
+* Based on **Debian Trixie Slim**
 * Installs Ruby and Jekyll with minimal dependencies
 * Includes a development container with live-reload support
 * Small, transparent, and easy to extend
