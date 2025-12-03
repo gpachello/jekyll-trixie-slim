@@ -1,7 +1,6 @@
 FROM debian:trixie-slim
 
-ENV DEBIAN_FRONTEND=noninteractive
-WORKDIR /root
+ARG DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
 RUN apt-get update -y && \
@@ -11,7 +10,7 @@ RUN apt-get update -y && \
     && rm -rf /var/lib/apt/lists/*
 
 # Create rootless user
-RUN useradd -m -u 1000 jekyll
+RUN useradd -m -u 4000 jekyll
 
 # Install Ruby Gems
 RUN gem install --no-document jekyll bundler
