@@ -1,0 +1,19 @@
+services:
+  jekyll:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: jekyll:trixie-slim
+    container_name: jekyll_dev
+    command: bundle exec jekyll serve --watch --force_polling --livereload --host 0.0.0.0
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    volumes:
+      - ./:/site
+      - jekyll_gems:/gems
+    environment:
+      JEKYLL_ENV: development
+
+volumes:
+  jekyll_gems:
