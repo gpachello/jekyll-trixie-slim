@@ -1,7 +1,5 @@
 FROM debian:trixie-slim
 
-ARG DEBIAN_FRONTEND=noninteractive
-
 # Install dependencies
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
