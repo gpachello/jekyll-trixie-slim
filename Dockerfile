@@ -1,21 +1,19 @@
 FROM debian:trixie-slim
 
-# Crear un usuario rootless
-RUN useradd -m -u 1000 jekyll
-
+# Install dependencies
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
         ruby-full \
-        build-essential \
-        git \
         ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-# Instalar herramientas Ruby
-RUN gem install bundler
-RUN gem install jekyll --no-document
+# Create rootless user
+RUN useradd -m -u 1000 jekyll
 
-# Directorio del sitio y de las gems
+# Install Ruby Gems
+RUN gem install --no-document jekyll bundler
+
+# Environment
 ENV GEM_HOME=/gems
 ENV BUNDLE_PATH=/gems
 ENV BUNDLE_APP_CONFIG=/gems
