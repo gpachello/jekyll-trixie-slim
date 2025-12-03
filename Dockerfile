@@ -1,5 +1,8 @@
 FROM debian:trixie-slim
 
+ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /root
+
 # Install dependencies
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
