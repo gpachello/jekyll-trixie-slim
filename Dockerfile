@@ -8,7 +8,7 @@ RUN apt-get update -y && \
     && rm -rf /var/lib/apt/lists/*
 
 # Create rootless user
-RUN useradd -m -u 4000 jekyll
+RUN groupadd -r jekyll && useradd -r -g jekyll -d /site -s /bin/sh jekyll
 
 # Install Ruby Gems
 RUN gem install --no-document jekyll bundler
