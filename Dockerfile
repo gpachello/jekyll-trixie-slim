@@ -1,23 +1,18 @@
 FROM debian:trixie-slim
 
-# Install dependencies
+RUN useradd -m -u 1000 jekyll
+
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
-        ruby-full \
-        ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
+        ruby-full build-essential && \
+    rm -rf /var/lib/apt/lists/*
 
-# Create rootless user
-RUN groupadd -r jekyll && useradd -r -g jekyll -d /site -s /bin/sh jekyll
+RUN gem install bundler && \
+    gem install jekyll --no-document
 
-# Environment
 ENV GEM_HOME=/gems
 ENV BUNDLE_PATH=/gems
 ENV BUNDLE_APP_CONFIG=/gems
-
-# Install Ruby Gems
-RUN gem install bundler --no-document && \
-    gem install jekyll --no-document
 
 RUN mkdir -p /site /gems && chown -R jekyll:jekyll /site /gems
 WORKDIR /site
