@@ -10,13 +10,13 @@ RUN apt-get update -y && \
 # Create rootless user
 RUN groupadd -r jekyll && useradd -r -g jekyll -d /site -s /bin/sh jekyll
 
-# Install Ruby Gems
-RUN gem install --no-document jekyll bundler
-
 # Environment
 ENV GEM_HOME=/gems
 ENV BUNDLE_PATH=/gems
 ENV BUNDLE_APP_CONFIG=/gems
+
+# Install Ruby Gems
+RUN gem install --no-document jekyll bundler
 
 RUN mkdir -p /site /gems && chown -R jekyll:jekyll /site /gems
 WORKDIR /site
