@@ -16,7 +16,8 @@ ENV BUNDLE_PATH=/gems
 ENV BUNDLE_APP_CONFIG=/gems
 
 # Install Ruby Gems
-RUN gem install --no-document jekyll bundler
+RUN gem install bundler --no-document && \
+    gem install jekyll --no-document
 
 RUN mkdir -p /site /gems && chown -R jekyll:jekyll /site /gems
 WORKDIR /site
