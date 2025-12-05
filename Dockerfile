@@ -7,7 +7,7 @@ RUN apt-get update -y && \
         ruby-full build-essential && \
     rm -rf /var/lib/apt/lists/*
 
-RUN gem install bundler && \
+RUN gem install bundler --no-document && \
     gem install jekyll --no-document
 
 ENV GEM_HOME=/gems
