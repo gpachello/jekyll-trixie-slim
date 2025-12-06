@@ -5,7 +5,7 @@ The goal is simplicity: a clean base image, only the essential packages, and a l
 
 ## Features:
 
-* Based on **Debian Trixie SLiM**
+* Based on **Debian Trixie Slim**
 * Installs Ruby and Jekyll with minimal dependencies
 * Includes a development container with live-reload support
 * Small, transparent, and easy to extend
